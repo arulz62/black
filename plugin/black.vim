@@ -116,7 +116,7 @@ def Black():
   except black.NothingChanged:
     pass
   except Exception as exc:
-    print(exc)
+    pass
   else:
     cursor = vim.current.window.cursor
     vim.current.buffer[:] = new_buffer_str.split('\n')[:-1]
