@@ -114,7 +114,7 @@ def Black():
   try:
     new_buffer_str = black.format_file_contents(buffer_str, fast=fast, mode=mode)
   except black.NothingChanged:
-    print(f'Already well formatted, good job. (took {time.time() - start:.4f}s)')
+    pass
   except Exception as exc:
     print(exc)
   else:
@@ -124,7 +124,6 @@ def Black():
       vim.current.window.cursor = cursor
     except vim.error:
       vim.current.window.cursor = (len(vim.current.buffer), 0)
-    print(f'Reformatted in {time.time() - start:.4f}s.')
 
 def BlackUpgrade():
   _initialize_black_env(upgrade=True)
